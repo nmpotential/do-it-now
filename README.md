@@ -23,11 +23,12 @@ Backend is written in Go, with a SwiftUI iOS frontend.
 The backend is configured via environment variables.  
 Copy `.env.example` to `.env` and update values as needed.
 
-| Variable      | Description                        | Example Value                                                   |
-|---------------|------------------------------------|-----------------------------------------------------------------|
-| DB_URL        | Postgres connection string         | postgres://user:password@localhost:5432/doitnow?sslmode=disable |
-| SERVER_PORT   | HTTP server port                   | 8080                                                            |
-| LOG_LEVEL     | Logging level (`info`, `debug`)    | info                                                            |
+| Variable      | Description                        | Required | Default | Example Value                                         |
+|---------------|------------------------------------|----------|---------|-------------------------------------------------------|
+| DB_URL        | Postgres connection string         | Yes      | —       | postgres://user:password@localhost:5432/doitnow?sslmode=disable |
+| SERVER_PORT   | HTTP server port                   | Yes      | —       | 8080                                                  |
+| LOG_LEVEL     | Logging level (`info`, `debug`)    | No       | info    | info                                                  |
+
 
 **Never commit real secrets.**  
 Update `.env.example` if you add new config fields.
