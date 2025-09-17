@@ -37,7 +37,10 @@ Update `.env.example` if you add new config fields.
 
 ## Running Locally
 
-1. Copy `.env.example` to `.env` and update values.
+1. Copy `.env.example` to `.env` and fill in your local values.
+   - Do **not** commit `.env` (it is gitignored).
+   - Update `.env.example` if you add new config fields.
+   
 2. Start services with Docker Compose:
 
    ```sh
@@ -45,6 +48,25 @@ Update `.env.example` if you add new config fields.
    ```
 
 3. The API will be available at `http://localhost:8080`.
+
+---
+
+## Database Migrations
+
+All database schema changes are managed via SQL migrations in [`backend/migrations`](backend/migrations).
+
+We use [golang-migrate/migrate](https://github.com/golang-migrate/migrate) for applying migrations.
+
+- To apply migrations:  
+  ```sh
+  migrate -path ./backend/migrations -database "$DB_URL" up
+   ```
+- To create a new migration:
+  ```sh
+   migrate create -ext sql -dir ./backend/migrations -seq <migration_name>   
+   ```
+
+See [`backend/migrations/README.md`](backend/migrations/README.md) for full instructions and best practices.
 
 ---
 
