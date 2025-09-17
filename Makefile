@@ -29,5 +29,8 @@ docker-up:
 docker-down:
 	docker compose down -v
 
+docker-up-all:
+	docker compose up --build -d
+
 reset-db:
 	docker-down docker-up migrate-force migrate-up

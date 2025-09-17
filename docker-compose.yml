@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:17.6
@@ -17,6 +15,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  api:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: postgres://user:password@db:5432/doitnow?sslmode=disable
+    depends_on:
+      - db
 
 volumes:
   pgdata:
