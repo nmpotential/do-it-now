@@ -24,7 +24,7 @@ profile.cov
 go.work
 go.work.sum
 
-# env file
+# Ignore local environment variable files (never commit secrets)
 .env
 
 # Editor/IDE
