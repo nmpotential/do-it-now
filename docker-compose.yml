@@ -24,6 +24,12 @@ services:
       DB_URL: postgres://user:password@db:5432/doitnow?sslmode=disable
     depends_on:
       - db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
 
 volumes:
   pgdata:
